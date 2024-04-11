@@ -55,7 +55,7 @@
                     </header>
 
                     <main class="mt-6">
-                       
+                       <a href="{{route('verified-qr.index',['attr1'=>10, 'attr2'=>'AP_45355'])}}">verified</a>
                     </main>
 
                     <footer class="py-16 text-center text-sm text-black dark:text-white/70">

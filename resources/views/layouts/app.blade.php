@@ -34,7 +34,7 @@
         </div> --}}
 
         <header>
-            @include('layouts.navigation')
+            {{-- @include('layouts.navigation') --}}
         </header>
         <main>
             @yield('content')

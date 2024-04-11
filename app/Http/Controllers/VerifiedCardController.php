@@ -14,15 +14,20 @@ class VerifiedCardController extends Controller
     public function index(Request $request){
 
         try {
-            $employeeId = Crypt::decryptString($request->attr1);
-            $cardNumber = Crypt::decryptString($request->attr2);
+            //Crypt::decryptString($request->attr1);
+            //Crypt::decryptString($request->attr2);
+            $employeeId = $request->attr1;
+            $cardNumber = $request->attr2;
 
             $card = Card::where('card_numb', $cardNumber)->get();
-            $employee = Employee::where('id', $cardNumber)->get();
-
+            $employee = Employee::where('id', $employeeId)->get();
+            
+            
             if($card !== null && $employee !== null){
-                return 'card verified '.$card .' employee '.$employee;
+                //return 'card verified '.$card .' employee '.$employee;
+                return view('card-verification',['card'=>$card, 'employee'=>$employee]);
             }
+            return 'failled';
         } catch (DecryptException $e) {
             // ...
         }
